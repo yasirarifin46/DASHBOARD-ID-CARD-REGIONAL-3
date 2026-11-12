@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DASHBOARD ID CARD REGIONAL 3</title>
+<style>
+:root{--navy:#07345b;--blue:#075b91;--sea:#0b84b9;--aqua:#dff5fb;--gold:#d8b65b;--gold2:#f2d98e;--ink:#15334d;--muted:#6f8294;--line:#dce7ef;--white:#fff;--green:#16845b;--red:#c34b4b;--amber:#b47718}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(145deg,#eaf8fc 0%,#f5fbfd 48%,#e6f2f8 100%);color:var(--ink)}
+.topbar{background:linear-gradient(110deg,#052c50,#075b91 58%,#0d91bd);color:#fff;padding:17px 24px;box-shadow:0 5px 18px #07345b26;border-bottom:3px solid var(--gold)}
+.brand{max-width:1500px;margin:auto;display:flex;align-items:center;gap:16px;justify-content:space-between;width:100%}.idmark{width:72px;height:60px;flex:0 0 72px;filter:drop-shadow(0 5px 6px #001d3d55)}.brandtext{flex:1;min-width:0}.company-logo-wrap{margin-left:auto;flex:0 0 auto;width:178px;height:58px;padding:5px 10px;background:#fff;border:1px solid #e8ca76;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #001d3d35}.company-logo{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}.brandtext h1{font-size:clamp(20px,3vw,30px);letter-spacing:.8px;margin:0;font-weight:800}.brandtext p{margin:5px 0 0;color:#d8edf7;font-size:12px;letter-spacing:2px}
+.app-shell{display:grid;grid-template-columns:252px minmax(0,1fr);min-height:calc(100vh - 98px)}
+.sidebar{background:linear-gradient(180deg,#062f53 0%,#073e68 55%,#064d78 100%);padding:22px 14px 28px;box-shadow:5px 0 18px #063b601a;min-width:0}
+.sidebar-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:14px;letter-spacing:.4px;padding:0 9px 18px;border-bottom:1px solid #ffffff22;margin-bottom:18px}
+.sidebar-brand .mini-id{font-size:24px;color:#e8cb78}
+.sidebar-label{font-size:10px;letter-spacing:1.5px;color:#a8c9dc;font-weight:800;padding:0 10px 10px}
+.side-nav{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid transparent;background:transparent;color:#dbeaf3;padding:13px 12px;margin:3px 0;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;transition:.15s}
+.side-nav .nav-ico{width:21px;text-align:center;font-size:16px;flex:0 0 21px}
+.side-nav:hover{background:#ffffff12;color:#fff}
+.side-nav.active{background:linear-gradient(110deg,#0875a5,#0b91bd);border-color:#d8b65b;color:#fff;box-shadow:0 5px 13px #001f3b55}
+.main-content{min-width:0;padding:22px 24px 34px}
+.container{max-width:none;margin:0;padding:0}
+.panel{background:#fff;border:1px solid #d5e7ef;border-radius:17px;padding:18px;box-shadow:0 8px 25px #0a4d6e12;margin-bottom:17px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}.section-head h2{font-size:18px;margin:0;color:#0b426b}.sub{font-size:12px;color:var(--muted);margin-top:5px}.refresh{border:1px solid #b8d6e4;background:#f0f9fc;border-radius:9px;padding:9px 13px;color:#075b91;font-weight:700;cursor:pointer}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:17px}.kpi{border-radius:14px;padding:16px;color:#fff;min-height:106px;box-shadow:0 5px 13px #063b6020;position:relative;overflow:hidden}.kpi:after{content:'';position:absolute;width:105px;height:105px;border:1px solid #ffffff33;border-radius:50%;right:-22px;top:35px}.kpi.total{background:linear-gradient(130deg,#06416d,#087eae)}.kpi.on{background:linear-gradient(130deg,#126747,#24a477)}.kpi.over{background:linear-gradient(130deg,#963e42,#d45b58)}.kpi.pending{background:linear-gradient(130deg,#80601d,#c49b43)}.kpi .label{font-size:11px;letter-spacing:1px;opacity:.9}.kpi .value{font-size:30px;font-weight:800;margin-top:12px}.kpi .hint{font-size:11px;opacity:.85;margin-top:4px}
+.filters{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:12px}.field label{display:block;font-size:11px;color:#587084;font-weight:800;margin:0 0 6px;letter-spacing:.4px}.field select,.field input{width:100%;padding:10px 11px;border:1px solid #c9dce6;border-radius:9px;background:#fbfeff;color:#193b54;font-size:13px;outline:none}.field select:focus,.field input:focus{border-color:#1689b8;box-shadow:0 0 0 3px #1689b81a}.searchrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}.searchrow .field{flex:1;min-width:220px}.btn{border:0;background:linear-gradient(110deg,#075b91,#0b8dbc);color:#fff;padding:10px 15px;border-radius:9px;font-weight:700;cursor:pointer}.btn.secondary{background:#eaf4f8;color:#155477;border:1px solid #bfd7e3}
+.export-dropdown{position:relative;display:inline-block;z-index:30}
+.export-trigger{display:inline-flex;align-items:center;gap:9px;min-width:132px;justify-content:center}
+.export-menu{position:absolute;right:0;top:calc(100% + 7px);min-width:230px;padding:7px;background:#fff;border:1px solid #c9dfeb;border-radius:12px;box-shadow:0 12px 28px #07345b26;z-index:100}
+.export-menu button{display:flex;align-items:center;gap:11px;width:100%;padding:10px 11px;border:0;background:#fff;color:#153b58;text-align:left;border-radius:8px;cursor:pointer;font:inherit}
+.export-menu button:hover{background:#edf7fb}
+.export-menu button+button{margin-top:3px}
+.export-menu button span:last-child{display:flex;flex-direction:column;gap:2px}
+.export-menu button b{font-size:12px}
+.export-menu button small{font-size:10px;color:#71889a}
+.export-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:8px;font-weight:900;font-size:12px}
+.export-icon.excel{background:#e1f3e8;color:#167344}
+.export-icon.csv{background:#e1f0fa;color:#17618e}
+.export-icon.pdf{background:#fde9e7;color:#b6423e}
+.sla-setting{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:13px;padding:12px 14px;background:#f2f9fc;border:1px dashed #bdd7e3;border-radius:10px;color:#174a6b}.sla-setting strong{font-size:12px;letter-spacing:.3px}.sla-setting small{color:#6a7f90;font-size:11px;max-width:760px;line-height:1.5}.status-grid{display:flex;gap:8px;flex-wrap:wrap}.status-chip{background:#f2f8fb;border:1px solid #d8e7ee;border-radius:10px;padding:9px 12px;font-size:12px;color:#3b5d73}.status-chip b{color:#0b426b;margin-left:5px}.table-wrap{overflow:auto;border:1px solid #dce8ef;border-radius:11px}table{width:100%;border-collapse:collapse;min-width:1050px;font-size:12px}
+#tableArea table{font-size:10px;min-width:1220px}
+#tableArea thead th{font-size:10px;padding:8px 7px}
+#tableArea tbody td{font-size:10px;padding:7px 7px}
+#tableArea th.phone-col,#tableArea td.phone-col{white-space:nowrap;min-width:115px}
+thead th{background:#eaf5fa;color:#174a6b;text-align:left;padding:11px 10px;white-space:nowrap;border-bottom:1px solid #cddfe8;position:sticky;top:0;z-index:1}tbody td{padding:10px;border-bottom:1px solid #edf2f5;vertical-align:top}tbody tr:hover{background:#f3fbfe}.pill{display:inline-block;border-radius:30px;padding:4px 8px;font-size:10px;font-weight:800;white-space:nowrap}.pill.on{background:#e0f5eb;color:#11744d}.pill.over{background:#fde8e7;color:#b43c3c}.pill.pending{background:#fff3d8;color:#95640d}.pill.other{background:#edf2f5;color:#526b7b}.pill.dist-to-be-onhand{background:#fff0d8;color:#a85d00;border:1px solid #efc47e;font-weight:800}.pill.dist-onhand{background:#e2efff;color:#145b9b;border:1px solid #a9cbed;font-weight:800}.status-chip.dist-chip-tobe{background:#fff0d8;border-color:#efc47e;color:#965400}.status-chip.dist-chip-tobe b{color:#965400}.status-chip.dist-chip-onhand{background:#e2efff;border-color:#a9cbed;color:#145b9b}.status-chip.dist-chip-onhand b{color:#145b9b}.pill.blink-alert,.lt-alert{background:#fde8e7!important;color:#b42323!important;font-weight:800}.lt-good{background:#e3f7e9!important;color:#16803c!important;font-weight:800}.pagination{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding-top:12px;color:#657c8e;font-size:12px}.pages{display:flex;gap:6px}.pages button{border:1px solid #cbdde6;background:#fff;border-radius:7px;padding:6px 10px;cursor:pointer;color:#135276}.pages button:disabled{opacity:.4;cursor:not-allowed}.loader,.error{padding:25px;text-align:center;color:#557488}.error{color:#b43c3c;background:#fff0f0;border-radius:10px}.empty{padding:30px;text-align:center;color:#73899a}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field textarea{width:100%;min-height:100px;padding:10px 11px;border:1px solid #c9dce6;border-radius:9px;background:#fbfeff;color:#193b54;font:13px Arial;resize:vertical}.feedback-tools{display:grid;grid-template-columns:repeat(3,minmax(170px,1fr));gap:12px;margin-bottom:14px}.upload-note{font-size:11px;color:#71889a;margin-top:5px}.success-note{padding:11px 13px;background:#e8f7ee;color:#176b47;border:1px solid #bfe6ce;border-radius:9px;margin-top:10px;font-size:12px}.dist-panel{background:linear-gradient(120deg,#06416d 0%,#087eae 58%,#0b91b7 100%);border:1px solid #d8b65b;padding:24px 26px;min-height:158px;box-shadow:0 10px 26px #07345b2b;position:relative;overflow:hidden}
+.dist-panel:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff2b;border-radius:50%;right:-65px;top:-85px;pointer-events:none}
+.dist-panel .section-head{position:relative;z-index:1;margin-bottom:19px}
+.dist-panel .section-head h2{font-size:23px;color:#fff;letter-spacing:.3px}
+.dist-panel .sub{color:#d7edf7;font-size:13px}
+.dist-panel .status-grid{position:relative;z-index:1;gap:12px}
+.dist-panel .status-chip{background:linear-gradient(135deg,#e1f5fc 0%,#b8e4f3 100%);border:1px solid #f0d98b;color:#06456e;padding:16px 21px;min-height:62px;font-size:15px;border-radius:13px;box-shadow:0 5px 12px #002c4d25}
+.dist-panel .status-chip b{font-size:21px;color:#07345b;margin-left:12px}
+.summary-hero{background:linear-gradient(115deg,#07345b 0%,#075b91 56%,#0b91bd 100%);border:1px solid #d8b65b;border-radius:15px;padding:18px 20px;color:#fff;box-shadow:0 8px 22px #07345b20;margin-bottom:15px;position:relative;overflow:hidden}
+.summary-hero:after{content:"";position:absolute;width:180px;height:180px;border:1px solid #ffffff26;border-radius:50%;right:-42px;top:-85px;pointer-events:none}
+.summary-hero h2{margin:0;font-size:21px;letter-spacing:.35px;color:#fff}.summary-hero .sub{color:#d8edf7;font-size:12px;line-height:1.55;max-width:900px}
+.summary-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0 18px}
+.summary-kpi{background:linear-gradient(135deg,#e7f6fc,#c7e7f4);border:1px solid #9ecfe3;border-radius:14px;padding:15px;color:#124a6e;box-shadow:0 5px 14px #075b9112;position:relative;overflow:hidden}
+.summary-kpi:nth-child(2){background:linear-gradient(135deg,#d9f6eb,#b9e8d8);border-color:#8ed2b6;color:#126746}
+.summary-kpi:nth-child(3){background:linear-gradient(135deg,#e4f0ff,#c8dcf4);border-color:#a6c5e8;color:#174c7b}
+.summary-kpi:nth-child(4){background:linear-gradient(135deg,#fff4d9,#f4e2ad);border-color:#e6cd83;color:#8a6417}
+.summary-kpi .label{font-size:11px;font-weight:800;letter-spacing:.65px;line-height:1.4}
+.summary-kpi .value{font-size:clamp(23px,2.3vw,31px);font-weight:900;margin-top:9px;letter-spacing:-.5px}
+.summary-filters{display:grid;grid-template-columns:repeat(5,minmax(135px,1fr));gap:12px;margin-bottom:14px;padding:14px;background:#f1f8fc;border:1px solid #d8e9f2;border-radius:12px}
+.summary-scope-note{display:flex;flex-direction:column;justify-content:center;gap:5px;padding:9px 12px;border:1px solid #e5ca78;border-radius:9px;background:#fff8e5;color:#805c10}
+.summary-scope-note span{font-size:9px;font-weight:800;letter-spacing:.7px;color:#94722b}
+.summary-scope-note b{font-size:12px;color:#075b91}
+
+.summary-visual{background:linear-gradient(145deg,#f6fbfe,#eaf5fa);border:1px solid #d5e7ef;border-radius:13px;padding:15px;margin:14px 0 16px}
+.summary-visual-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}.summary-visual-head strong{color:#0b426b;font-size:13px;letter-spacing:.3px}.summary-visual-head span{color:#6f8294;font-size:11px}
+.summary-bars{display:grid;gap:9px}.summary-bar-row{display:grid;grid-template-columns:minmax(115px,210px) minmax(80px,1fr) 60px;align-items:center;gap:10px}.summary-bar-name{font-size:11px;font-weight:700;color:#244c68;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.summary-bar-track{height:13px;background:#dcebf3;border-radius:20px;overflow:hidden;box-shadow:inset 0 1px 2px #0b426b12}.summary-bar-fill{height:100%;background:linear-gradient(90deg,#075b91,#0b91bd 75%,#d8b65b);border-radius:20px;min-width:2px}.summary-bar-value{text-align:right;font-size:11px;font-weight:800;color:#075b91;font-variant-numeric:tabular-nums}
+.pivot-table{min-width:max-content;width:100%;border-collapse:separate;border-spacing:0;font-size:10px;background:#fff;border:1px solid #cbdfe9;border-radius:11px;overflow:hidden}
+.pivot-table th,.pivot-table td{border-right:1px solid #dce8ef;border-bottom:1px solid #e5eef3;padding:5px 6px;white-space:nowrap;font-size:10px}
+.pivot-table .pivot-rm-head{background:linear-gradient(135deg,#07345b,#075b91);color:#fff;text-align:left;min-width:175px;vertical-align:middle;font-size:10px}
+.pivot-table .pivot-band{background:linear-gradient(90deg,#d8b65b,#f2d98e,#d8b65b);color:#173b58;text-align:center;font-size:11px;font-weight:900;letter-spacing:.7px}
+.pivot-table .pivot-day-head{background:#e7f3f9;color:#174a6b;text-align:center;min-width:27px;font-weight:800;font-size:9px}
+.pivot-table .pivot-grand-head{background:#075b91;color:#fff;text-align:center;vertical-align:middle;min-width:98px}
+.pivot-table .pivot-revo{font-weight:700;text-align:left;min-width:150px;color:#075b91;background:#f1f8fc;font-size:9px}.pivot-table .pivot-rm{font-weight:700;text-align:left;min-width:185px;color:#17425f;background:#f8fcfe;font-size:9px}
+.pivot-table .pivot-number{text-align:center !important;font-variant-numeric:tabular-nums;min-width:27px;color:#214a67;font-size:9px}
+.pivot-table .pivot-row-total{background:#e8f4fa;color:#073b63;font-weight:800;text-align:center !important}
+.pivot-table .pivot-total-row td{background:linear-gradient(90deg,#07345b,#075b91);color:#fff;font-weight:900;border-top:2px solid #d8b65b;border-bottom:0}
+.pivot-table tbody tr:hover td{filter:brightness(.97)}
+.pivot-table thead tr:first-child th{position:sticky;top:0;z-index:3}
+.pivot-table thead tr:nth-child(2) th{position:sticky;top:29px;z-index:2}
+.footer{text-align:center;color:#8094a3;font-size:11px;padding:10px}
+@media(max-width:720px){.summary-bar-row{grid-template-columns:105px minmax(70px,1fr) 48px}.summary-hero{padding:15px}.summary-hero h2{font-size:17px}}
+@media(max-width:1100px){.app-shell{grid-template-columns:220px minmax(0,1fr)}.main-content{padding:18px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.filters,.summary-filters{grid-template-columns:repeat(2,minmax(140px,1fr))}.summary-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.app-shell{display:block}.sidebar{display:flex;gap:7px;overflow-x:auto;padding:9px 10px;position:sticky;top:0;z-index:5}.sidebar-brand,.sidebar-label{display:none}.side-nav{width:auto;white-space:nowrap;flex:0 0 auto;padding:10px 12px;margin:0}.main-content{padding:13px 10px 25px}}
+@media(max-width:560px){.form-grid,.feedback-tools{grid-template-columns:1fr}.topbar{padding:13px}.idmark{width:58px;flex-basis:58px}.brandtext p{font-size:9px;letter-spacing:1px}.company-logo-wrap{width:128px;height:46px;padding:4px 7px}.panel{padding:13px}.kpis{gap:8px}.kpi{padding:12px;min-height:92px}.kpi .value{font-size:24px}.filters,.summary-filters,.summary-kpis{grid-template-columns:1fr 1fr}.dist-panel{padding:18px 15px}.dist-panel .section-head h2{font-size:19px}}
+
+/* PENUGASAN BY AGENT BS */
+.agent-bs-kpis{margin-bottom:17px}
+.agent-bs-filters{display:grid;grid-template-columns:repeat(6,minmax(125px,1fr));gap:12px;padding:14px;background:#f1f8fc;border:1px solid #d8e9f2;border-radius:12px}
+.agent-bs-note{margin-top:10px;color:#6f8294;font-size:11px}
+#agentBsTableArea table{font-size:10px;min-width:1500px}
+#agentBsTableArea thead th{font-size:10px;padding:8px 7px}
+#agentBsTableArea tbody td{font-size:10px;padding:7px 7px;vertical-align:middle}
+.feedback-tad-select{width:220px;max-width:220px;padding:7px 8px;border:1px solid #b9d3e2;border-radius:8px;background:#fafdff;color:#174a6b;font-size:10px;font-weight:700;outline:none}
+.feedback-tad-select:focus{border-color:#0b84b9;box-shadow:0 0 0 3px #0b84b91a}
+.feedback-tad-select{transition:background-color .15s ease,color .15s ease,border-color .15s ease}
+.feedback-tad-select.feedback-empty{background:#f3f7fa;color:#667b8b;border-color:#cbd9e2}
+.feedback-tad-select.feedback-received{background:#e2f5e9;color:#146c43;border-color:#a8d9ba}
+.feedback-tad-select.feedback-notreceived{background:#fde9e8;color:#b42318;border-color:#efb5b1}
+.feedback-tad-select.feedback-mismatch{background:#fff2d8;color:#965c00;border-color:#f0d08a}
+.feedback-tad-select.feedback-damaged{background:#fce6e6;color:#a52727;border-color:#e5aaaa}
+.feedback-tad-select.feedback-unprinted{background:#eef0f4;color:#4b5563;border-color:#cbd0d8}
+.feedback-tad-select.feedback-lost{background:#f0e8ff;color:#673ab7;border-color:#c8b4ee}
+.feedback-tad-select.feedback-revo{background:#ffeddc;color:#a64b08;border-color:#efc39b}
+.feedback-tad-select.feedback-branch{background:#e2f0ff;color:#175b9b;border-color:#b3d0ee}
+.feedback-tad-select option{font-weight:700;background:#fff}
+.feedback-tad-select option[value="SUDAH DITERIMA"]{color:#146c43}
+.feedback-tad-select option[value="BELUM DITERIMA"]{color:#b42318}
+.feedback-tad-select option[value="DITERIMA TIDAK SESUAI"]{color:#965c00}
+.feedback-tad-select option[value="ID CARD RUSAK"]{color:#a52727}
+.feedback-tad-select option[value="ID CARD BELUM DICETAK"]{color:#4b5563}
+.feedback-tad-select option[value="ID CARD HILANG"]{color:#673ab7}
+.feedback-tad-select option[value="ID CARD BELUM DI TERIMA REVO/RM"]{color:#a64b08}
+.feedback-tad-select option[value="ID CARD BELUM TERIMA CABANG"]{color:#175b9b}
+.feedback-tad-select option[value="TERMINATE/RESIGN"]{color:#8B2E5D}
+#abFeedback{font-weight:700}
+#abFeedback option{font-weight:700;background:#fff}
+#abFeedback option[value="__EMPTY__"]{color:#718096}
+#abFeedback option[value="SUDAH DITERIMA"]{color:#146c43}
+#abFeedback option[value="BELUM DITERIMA"]{color:#b42318}
+#abFeedback option[value="DITERIMA TIDAK SESUAI"]{color:#965c00}
+#abFeedback option[value="ID CARD RUSAK"]{color:#a52727}
+#abFeedback option[value="ID CARD BELUM DICETAK"]{color:#4b5563}
+#abFeedback option[value="ID CARD HILANG"]{color:#673ab7}
+#abFeedback option[value="ID CARD BELUM DI TERIMA REVO/RM"]{color:#a64b08}
+#abFeedback option[value="ID CARD BELUM TERIMA CABANG"]{color:#175b9b}
+#abFeedback option[value="TERMINATE/RESIGN"]{color:#8B2E5D}
+.agent-bs-dist-panel{margin-top:0;margin-bottom:17px}
+.agent-bs-dist-panel .section-head h2{font-size:23px;color:#fff;letter-spacing:.3px}
+.agent-bs-dist-panel .sub{color:#d7edf7;font-size:13px}
+.agent-bs-dist-panel .status-grid{gap:12px}
+.agent-bs-dist-panel .status-chip{background:linear-gradient(135deg,#e1f5fc 0%,#b8e4f3 100%);border:1px solid #f0d98b;color:#06456e;padding:16px 21px;min-height:62px;font-size:15px;border-radius:13px;box-shadow:0 5px 12px #002c4d25}
+.agent-bs-dist-panel .status-chip b{font-size:21px;color:#07345b;margin-left:12px}
+
+.feedback-save-state{display:block;margin-top:4px;font-size:9px;color:#6f8294;min-height:11px}
+.feedback-save-state.saved{color:#16845b;font-weight:700}
+.feedback-save-state.failed{color:#b43c3c;font-weight:700}
+@media(max-width:1100px){.agent-bs-filters{grid-template-columns:repeat(3,minmax(140px,1fr))}}
+@media(max-width:560px){.agent-bs-filters{grid-template-columns:1fr 1fr}}
+
+
+/* SUMMARY PIVOT — VIVID OCEAN / ELECTRIC TURQUOISE / GOLD */
+#summaryTableArea .pivot-table{
+  border:1px solid #8BCDDD;
+  border-radius:13px;
+  box-shadow:0 7px 18px rgba(0,86,128,.12);
+  background:#FFFFFF;
+}
+#summaryTableArea .pivot-table th,
+#summaryTableArea .pivot-table td{
+  border-right:1px solid #C5E6EF;
+  border-bottom:1px solid #D9EEF3;
+}
+#summaryTableArea .pivot-table .pivot-rm-head{
+  background:linear-gradient(135deg,#06345B 0%,#075F91 58%,#087FA6 100%);
+  color:#FFFFFF;
+  font-weight:900;
+  letter-spacing:.35px;
+}
+#summaryTableArea .pivot-table .pivot-band{
+  background:linear-gradient(100deg,#F1B938 0%,#FFD96D 48%,#FFBE3D 100%);
+  color:#07345B;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-shadow:0 1px 0 rgba(255,255,255,.35);
+  border-bottom:2px solid #E6A928;
+}
+#summaryTableArea .pivot-table .pivot-day-head{
+  background:linear-gradient(180deg,#D8F7FC 0%,#BCECF5 100%);
+  color:#06496C;
+  font-weight:900;
+  border-bottom:1px solid #87D3E4;
+}
+#summaryTableArea .pivot-table .pivot-grand-head{
+  background:linear-gradient(135deg,#087EA5 0%,#075B91 100%);
+  color:#FFFFFF;
+  font-weight:900;
+  border-left:2px solid #E6B83F;
+}
+#summaryTableArea .pivot-table .pivot-revo{
+  background:linear-gradient(90deg,#E6F8FC 0%,#F2FBFD 100%);
+  color:#006F98;
+  font-weight:800;
+  border-left:3px solid #20B5D0;
+}
+#summaryTableArea .pivot-table .pivot-rm{
+  background:linear-gradient(90deg,#FFF8E5 0%,#FFFCF2 100%);
+  color:#80520A;
+  font-weight:800;
+  border-left:2px solid #F0C75B;
+}
+#summaryTableArea .pivot-table .pivot-number{
+  color:#123F5A;
+  font-variant-numeric:tabular-nums;
+  transition:filter .12s ease;
+}
+#summaryTableArea .pivot-table .pivot-row-total{
+  background:linear-gradient(90deg,#C8EDF5 0%,#E4F6FA 100%);
+  color:#06496C;
+  font-weight:900;
+  border-left:2px solid #25A9C5;
+}
+#summaryTableArea .pivot-table .pivot-total-row td{
+  background:linear-gradient(100deg,#052F55 0%,#075B91 58%,#0789B3 100%);
+  color:#FFFFFF;
+  font-weight:900;
+  border-top:3px solid #FFC94F;
+  border-right:1px solid rgba(255,255,255,.22);
+  border-bottom:0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
+}
+#summaryTableArea .pivot-table tbody tr:nth-child(even):not(.pivot-total-row) td{
+  box-shadow:inset 0 0 0 999px rgba(13,126,166,.025);
+}
+#summaryTableArea .pivot-table tbody tr:hover:not(.pivot-total-row) td{
+  filter:brightness(.96);
+}
+#summaryVisual .summary-visual-head strong{color:#064A70}
+#summaryVisual .summary-bar-track{background:#DDF2F7}
+#summaryVisual .summary-bar-fill{
+  background:linear-gradient(90deg,#00A8C7 0%,#087EAE 55%,#075B91 100%);
+  box-shadow:0 2px 7px rgba(0,111,152,.22);
+}
+
+
+/* Semua nilai angka di matriks Summary rata tengah; nama REVO/RM tetap rata kiri. */
+#summaryTableArea .pivot-table td.pivot-number,
+#summaryTableArea .pivot-table td.pivot-row-total {
+  text-align: center !important;
+}
+
+</style>
+</head>
+<body>
+<header class="topbar"><div class="brand">
+<svg class="idmark" viewBox="0 0 120 96" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustrasi ID Card"><defs><linearGradient id="cardg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d9edf6"/></linearGradient><linearGradient id="blueg"><stop stop-color="#22b5e7"/><stop offset="1" stop-color="#07528b"/></linearGradient></defs><path d="M43 8 C43 -1 77 -1 77 8 L77 22 L68 22 L68 10 C68 7 52 7 52 10 L52 22 L43 22Z" fill="none" stroke="#f0d47d" stroke-width="5"/><rect x="10" y="18" width="100" height="70" rx="10" fill="url(#cardg)" stroke="#e8ca76" stroke-width="3"/><path d="M10 28 Q10 18 20 18 H100 Q110 18 110 28 V38 H10Z" fill="url(#blueg)"/><circle cx="36" cy="56" r="12" fill="#0b5a91"/><path d="M17 80 Q19 64 36 64 Q53 64 55 80Z" fill="#0b5a91"/><rect x="63" y="49" width="34" height="5" rx="2" fill="#0b5a91"/><rect x="63" y="60" width="29" height="4" rx="2" fill="#77a9c5"/><rect x="63" y="70" width="35" height="4" rx="2" fill="#77a9c5"/></svg>
+<div class="brandtext"><h1>DASHBOARD ID CARD REGIONAL 3</h1><p>PERSONALIA &nbsp;•&nbsp; MONITORING DISTRIBUSI ID CARD</p></div>
+<div class="company-logo-wrap"><img class="company-logo" alt="Logo SIMGROUP" src="data:image/png;base64,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"></div>
+</div></header>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="sidebar-brand"><span class="mini-id">▣</span><span>ID CARD<br>REGIONAL 3</span></div>
+  <div class="sidebar-label">MENU UTAMA</div>
+  <button class="side-nav active" id="tabAGENTBS" onclick="openAgentBs()"><span class="nav-ico">▦</span><span>PENUGASAN BY AGENT BS</span></button>
+  <button class="side-nav" id="tabNASIONAL" onclick="changeSource('NASIONAL')"><span class="nav-ico">▣</span><span>ID CARD NASIONAL</span></button>
+  <button class="side-nav" id="tabMKM" onclick="changeSource('MKM')"><span class="nav-ico">▤</span><span>ID CARD MKM</span></button>
+  <button class="side-nav" id="tabEVIDENCE" onclick="openEvidence()"><span class="nav-ico">▧</span><span>KENDALA ID CARD</span></button>
+  <button class="side-nav" id="tabSUMMARY" onclick="openSummary()"><span class="nav-ico">▥</span><span>SUMMARY LEADTIME &amp; JUMLAH TAD</span></button>
+</aside>
+<main class="main-content">
+<div id="loadState" class="panel loader" style="display:none">Menghubungkan ke Google Sheets...</div>
+
+<div id="agentBsPage">
+  <section class="kpis agent-bs-kpis">
+    <div class="kpi total"><div class="label">TOTAL BEBAN</div><div class="value" id="abTotal">0</div><div class="hint">Jumlah penugasan sesuai filter</div></div>
+    <div class="kpi on"><div class="label">BEBAN DONE</div><div class="value" id="abDone">0</div><div class="hint">Status produksi DONE</div></div>
+    <div class="kpi over"><div class="label">BEBAN UNDONE</div><div class="value" id="abUndone">0</div><div class="hint">Belum berstatus DONE</div></div>
+    <div class="kpi pending"><div class="label">ACHIEVEMENT</div><div class="value" id="abAchievement">0%</div><div class="hint">Done dibanding total beban</div></div>
+  </section>
+
+  <section class="panel dist-panel agent-bs-dist-panel">
+    <div class="section-head">
+      <div><h2>STATUS DISTRIBUSI KE TAD</h2><div class="sub">Ringkasan status mengikuti filter penugasan yang sedang dipilih.</div></div>
+      <div class="sub" id="abDistCount">0 data ditemukan</div>
+    </div>
+    <div class="status-grid" id="abDistSummary"></div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div><h2>PENUGASAN BY AGENT BS</h2><div class="sub">Monitoring beban dan detail karyawan berdasarkan sumber data, Agent BS, BSO, dan status distribusi TAD.</div></div>
+      <button class="refresh" type="button" onclick="loadAgentBsData()">↻ Refresh Data</button>
+    </div>
+    <div class="agent-bs-filters">
+      <div class="field"><label>ID CARD NASIONAL</label><select id="abSource" onchange="applyAgentBsFilters()"><option value="">Semua Sumber</option><option value="NASIONAL">ID CARD NASIONAL</option><option value="MKM">ID CARD MKM</option></select></div>
+      <div class="field"><label>AGENT BS</label><select id="abAgent" onchange="applyAgentBsFilters()"><option value="">Semua Agent BS</option></select></div>
+      <div class="field"><label>PIC BSO</label><select id="abBso" onchange="applyAgentBsFilters()"><option value="">Semua PIC BSO</option></select></div>
+      <div class="field"><label>STATUS DISTRIBUSI TAD</label><select id="abDist" onchange="applyAgentBsFilters()"><option value="">Semua Status</option></select></div>
+      <div class="field"><label>FEEDBACK TAD</label><select id="abFeedback" onchange="applyAgentBsFilters()"><option value="">Semua Feedback</option></select></div>
+      <div class="field"><label>CARI SIM ID BPR</label><input id="abSimSearch" type="search" placeholder="Ketik SIM ID BPR..." oninput="applyAgentBsFilters()" autocomplete="off"></div>
+    </div>
+    <div class="agent-bs-note" id="agentBsLoadNote">Data penugasan akan dibaca dari ID CARD NASIONAL dan ID CARD MKM.</div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div><h2>DETAIL DATA KARYAWAN</h2><div class="sub">Feedback TAD dapat dipilih langsung pada setiap baris dan otomatis disimpan ke kolom T (FEEDBACK AGENT BS) pada sheet sumber.</div></div>
+      <div class="export-dropdown">
+        <button class="btn secondary export-trigger" id="agentExportMenuButton" type="button" onclick="toggleAgentExportMenu(event)">⇩ Export Data <span aria-hidden="true">▾</span></button>
+        <div class="export-menu" id="agentExportMenu" style="display:none" role="menu" aria-label="Pilihan export penugasan">
+          <button type="button" role="menuitem" onclick="runAgentBsExport('xlsx')"><span class="export-icon excel">X</span><span><b>Excel (.xlsx)</b><small>Untuk olah data</small></span></button>
+          <button type="button" role="menuitem" onclick="runAgentBsExport('csv')"><span class="export-icon csv">C</span><span><b>CSV (.csv)</b><small>Format data sederhana</small></span></button>
+          <button type="button" role="menuitem" onclick="runAgentBsExport('pdf')"><span class="export-icon pdf">P</span><span><b>PDF (.pdf)</b><small>Siap dibagikan / dicetak</small></span></button>
+        </div>
+      </div>
+    </div>
+    <div id="agentBsTableArea" class="table-wrap"><div class="loader">Memuat detail penugasan...</div></div>
+    <div class="pagination"><div id="agentBsPageInfo">Halaman 1</div><div class="pages"><button id="agentBsPrevBtn" onclick="changeAgentBsPage(-1)">‹ Sebelumnya</button><button id="agentBsNextBtn" onclick="changeAgentBsPage(1)">Berikutnya ›</button></div></div>
+  </section>
+</div>
+
+<div id="app" style="display:none">
+<section class="kpis">
+<div class="kpi total"><div class="label">TOTAL ID CARD</div><div class="value" id="kTotal">0</div><div class="hint">Jumlah record pada sumber terpilih</div></div>
+<div class="kpi on"><div class="label">ON SLA</div><div class="value" id="kOn">0</div><div class="hint" id="kOnHint">Sesuai batas SLA</div></div>
+<div class="kpi over"><div class="label">OVER SLA</div><div class="value" id="kOver">0</div><div class="hint">Melewati batas SLA</div></div>
+<div class="kpi pending"><div class="label">BEBAN BELUM PRODUKSI</div><div class="value" id="kPending">0</div><div class="hint">Perlu dilengkapi / diperiksa</div></div>
+</section>
+<section class="panel dist-panel">
+<div class="section-head"><div><h2>STATUS DISTRIBUSI KE TAD</h2><div class="sub">Ringkasan status mengikuti filter yang sedang dipilih.</div></div><div class="sub" id="resultCount">0 data ditemukan</div></div>
+<div class="status-grid" id="distSummary"></div>
+</section>
+<section class="panel">
+<div class="section-head"><div><h2 id="filterTitle">Filter ID Card Nasional</h2><div class="sub">Ubah filter dan hasil data di bawah akan langsung diperbarui.</div></div><button class="refresh" onclick="loadData(true)">↻ Refresh Data</button></div>
+<div class="filters">
+<div class="field"><label>PIC BSO</label><select id="fBso" onchange="applyFilters()"><option value="">Semua PIC BSO</option></select></div>
+<div class="field"><label id="revoLabel">REVO</label><select id="fRevo" onchange="applyFilters()"><option value="">Semua REVO</option></select></div>
+<div class="field"><label>RM</label><select id="fRm" onchange="applyFilters()"><option value="">Semua RM</option></select></div>
+<div class="field"><label>AREA / CABANG</label><select id="fArea" onchange="applyFilters()"><option value="">Semua Area / Cabang</option></select></div>
+</div>
+<div class="searchrow"><div class="field"><label>PENCARIAN KARYAWAN</label><input id="fSearch" type="search" placeholder="Cari SIM ID BPR, nama, cabang, perusahaan..." oninput="applyFilters()"></div><div class="field" style="max-width:180px"><label>STATUS SLA</label><select id="fSla" onchange="applyFilters()"><option value="">Semua Status SLA</option><option>ON SLA</option><option>OVER SLA</option><option>BELUM ADA TANGGAL</option><option>BELUM DIATUR</option><option>BELUM ADA STATUS</option></select></div><div class="field" style="max-width:180px"><label>STATUS DISTRIBUSI TAD</label><select id="fDist" onchange="applyFilters()"><option value="">Semua Status Distribusi</option></select></div><button class="btn secondary" onclick="resetFilters()">Reset Filter</button></div>
+<div id="slaSetting" class="sla-setting" style="display:none"><strong>BATAS SLA NASIONAL OTOMATIS: 5 HARI KERJA</strong><small>Perhitungan dari tanggal diterima CRO & MRM sampai tanggal diterima TAD. Untuk data yang belum diterima TAD, perhitungan berjalan sampai hari ini. Sabtu dan Minggu tidak dihitung; hari libur nasional belum dikurangi.</small></div>
+</section>
+
+<section class="panel">
+<div class="section-head"><div><h2>DETAIL DATA KARYAWAN</h2><div class="sub">Tabel berubah otomatis mengikuti seluruh filter di atas.</div></div><div class="export-dropdown">
+  <button class="btn secondary export-trigger" id="exportMenuButton" type="button" onclick="toggleExportMenu(event)">⇩ Export Data <span aria-hidden="true">▾</span></button>
+  <div class="export-menu" id="exportMenu" style="display:none" role="menu" aria-label="Pilihan export">
+    <button type="button" role="menuitem" onclick="runExport('xlsx')"><span class="export-icon excel">X</span><span><b>Excel (.xlsx)</b><small>Untuk olah data</small></span></button>
+    <button type="button" role="menuitem" onclick="runExport('csv')"><span class="export-icon csv">C</span><span><b>CSV (.csv)</b><small>Format data sederhana</small></span></button>
+    <button type="button" role="menuitem" onclick="runExport('pdf')"><span class="export-icon pdf">P</span><span><b>PDF (.pdf)</b><small>Siap dibagikan / dicetak</small></span></button>
+  </div>
+</div></div>
+<div id="tableArea" class="table-wrap"><div class="loader">Memuat tabel...</div></div>
+<div class="pagination"><div id="pageInfo">Halaman 1</div><div class="pages"><button id="prevBtn" onclick="changePage(-1)">‹ Sebelumnya</button><button id="nextBtn" onclick="changePage(1)">Berikutnya ›</button></div></div>
+</section>
+</div>
+
+<div id="evidencePage" style="display:none">
+<section class="panel">
+<div class="section-head"><div><h2>INPUT KENDALA ID CARD</h2><div class="sub">Catat kendala ID Card dan unggah evidence langsung ke Google Drive.</div></div></div>
+<div class="form-grid">
+<div class="field"><label>SUMBER ID CARD</label><select id="evSource" onchange="resetEvidenceEmployee()"><option value="NASIONAL">ID CARD NASIONAL</option><option value="MKM">ID CARD MKM</option></select></div>
+<div class="field"><label>SIM ID BPR — SEARCH</label><input id="evSimId" list="evSimOptions" placeholder="Ketik untuk mencari SIM ID..." oninput="searchEvidenceEmployee()" onchange="selectEvidenceEmployee()"><datalist id="evSimOptions"></datalist></div>
+<div class="field"><label>NAMA KARYAWAN</label><input id="evName" placeholder="Terisi otomatis" readonly></div>
+<div class="field"><label>AREA / CABANG</label><input id="evBranch" placeholder="Terisi otomatis" readonly></div>
+<div class="field"><label>PIC BSO</label><input id="evBso" placeholder="Terisi otomatis" readonly></div>
+<div class="field"><label>RM</label><input id="evRm" placeholder="Terisi otomatis" readonly></div>
+<div class="field"><label>REVO</label><input id="evRevo" placeholder="Terisi otomatis" readonly></div>
+<div class="field"><label>JENIS KENDALA</label><select id="evIssue"><option value="">Pilih jenis kendala</option><option>ID Card belum diterima TAD</option><option>Data ID Card tidak sesuai</option><option>ID Card rusak / tidak terbaca</option><option>Kendala proses produksi</option><option>Kendala pengiriman / distribusi</option><option>Tanda terima bermasalah</option><option>Lainnya</option></select></div>
+<div class="field" style="grid-column:1/-1"><label>DETAIL KENDALA</label><textarea id="evDetail" placeholder="Jelaskan kendala, kronologi, dan tindak lanjut yang sudah dilakukan..."></textarea></div>
+<div class="field" style="grid-column:1/-1"><label>UPLOAD EVIDENCE (JPG, PNG, WEBP, PDF — MAKS. 5 MB)</label><input id="evFile" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" onchange="showEvidenceFileName()"><div class="upload-note" id="evFileNote">Pilih foto atau dokumen bukti kendala.</div></div>
+</div>
+<div class="searchrow"><button class="btn" id="saveEvidenceBtn" onclick="submitEvidence()">SIMPAN KENDALA ID CARD</button><button class="btn secondary" onclick="resetEvidenceForm()">RESET FORM</button></div>
+<div id="evidenceMessage"></div>
+</section>
+<section class="panel">
+<div class="section-head"><div><h2>RIWAYAT KENDALA ID CARD</h2><div class="sub">Daftar laporan kendala yang sudah dicatat melalui dashboard.</div></div><button class="refresh" onclick="loadEvidence()">↻ Refresh Evidence</button></div>
+<div id="evidenceCount" class="sub">Memuat riwayat...</div>
+<div id="evidenceTableArea" class="table-wrap"><div class="loader">Memuat riwayat evidence...</div></div>
+</section>
+</div>
+
+<div id="summaryPage" style="display:none">
+<section class="panel">
+  <div class="summary-hero">
+    <div class="section-head" style="margin:0;position:relative;z-index:1">
+      <div><h2>SUMMARY LEADTIME PER REVO / RM &amp; JUMLAH TAD</h2><div class="sub">Ringkasan beban ID Card TO BE ONHAND, jumlah RM dan REVO, serta leadtime terlama. Matriks otomatis diurutkan berdasarkan REVO lalu RM.</div></div>
+      <button class="refresh" style="background:#eff9fd;border-color:#d8e8ef" onclick="loadSummary()">↻ Refresh Summary</button>
+    </div>
+  </div>
+  <div class="summary-filters">
+    <div class="field"><label>SUMBER DATA</label><select id="smSource" onchange="renderSummary()"><option value="">Semua Sumber</option><option value="NASIONAL">ID CARD NASIONAL</option><option value="MKM">ID CARD MKM</option></select></div>
+    <div class="field"><label>PIC BSO</label><select id="smBso" onchange="renderSummary()"><option value="">Semua PIC BSO</option></select></div>
+    <div class="field"><label>RM</label><select id="smRm" onchange="renderSummary()"><option value="">Semua RM</option></select></div>
+    <div class="summary-scope-note"><span>STATUS SUMMARY</span><b>TO BE ONHAND</b></div>
+    <div class="field"><label>PENCARIAN RM</label><input id="smSearch" type="search" placeholder="Cari nama RM..." oninput="renderSummary()"></div>
+  </div>
+  <div class="summary-kpis">
+    <div class="summary-kpi"><div class="label">BEBAN ID CARD</div><div class="value" id="smTotalLoad">0</div></div>
+    <div class="summary-kpi"><div class="label">JUMLAH RM</div><div class="value" id="smTotalRm">0</div></div>
+    <div class="summary-kpi"><div class="label">JUMLAH REVO</div><div class="value" id="smTotalRevo">0</div></div>
+    <div class="summary-kpi"><div class="label">LT TERLAMA</div><div class="value" id="smMaxLead">-</div></div>
+  </div>
+  <div class="sub" id="smCount">Memuat summary...</div>
+  <div id="summaryVisual" class="summary-visual" style="display:none"></div>
+  <div id="summaryTableArea" class="table-wrap"><div class="loader">Memuat summary leadtime...</div></div>
+</section>
+</div>
+
+<div class="footer">DASHBOARD ID CARD REGIONAL 3 • Data dibaca langsung dari Google Sheets • Master data tidak diubah</div>
+</main>
+</div>
+<script>
+var currentSource='NASIONAL';
+var allRows=[];
+var filteredRows=[];
+var page=1;
+var pageSize=25;
+var nationalSla=null;
+var lastHeaders=[];
+var loadStartedAt=0;
+var loadProgressTimer=null;
+
+var evidenceRows=[];
+var activePage='AGENTBS';
+var summaryRows=[];
+var agentBsRows=[];
+var agentBsFilteredRows=[];
+var agentBsPage=1;
+var agentBsPageSize=25;
+var agentBsLoaded=false;
+var feedbackTadOptions=[
+  'SUDAH DITERIMA',
+  'BELUM DITERIMA',
+  'DITERIMA TIDAK SESUAI',
+  'ID CARD RUSAK',
+  'ID CARD BELUM DICETAK',
+  'ID CARD HILANG',
+  'ID CARD BELUM DI TERIMA REVO/RM',
+  'ID CARD BELUM TERIMA CABANG',
+  'TERMINATE/RESIGN'
+];
+
+function activatePage(page,tabId){
+  activePage=page;
+  ['tabAGENTBS','tabNASIONAL','tabMKM','tabEVIDENCE','tabSUMMARY'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.classList.toggle('active',id===tabId);
+  });
+  ['agentBsPage','app','evidencePage','summaryPage','loadState'].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.style.display='none';
+  });
+}
+function openAgentBs(){
+  activatePage('AGENTBS','tabAGENTBS');
+  document.getElementById('agentBsPage').style.display='block';
+  if(!agentBsLoaded)loadAgentBsData();else applyAgentBsFilters();
+}
+function loadAgentBsData(){
+  document.getElementById('agentBsTableArea').innerHTML='<div class="loader">Membaca data ID CARD NASIONAL dan ID CARD MKM...</div>';
+  document.getElementById('agentBsLoadNote').textContent='Menggabungkan data sumber dan membaca Feedback TAD tersimpan...';
+  google.script.run.withSuccessHandler(function(res){
+    agentBsRows=res.rows||[];
+    agentBsLoaded=true;
+    fillAgentBsFilters();
+    applyAgentBsFilters();
+    document.getElementById('agentBsLoadNote').textContent=fmt(agentBsRows.length)+' record tersedia dari dua sumber. Done dihitung dari STATUS PRODUKSI (Nasional) atau UPLOAD BEBAN ATOM (MKM), dengan STATUS ID CARD sebagai cadangan. Feedback TAD disimpan langsung ke kolom T pada sheet sumber.';
+  }).withFailureHandler(function(err){
+    document.getElementById('agentBsLoadNote').innerHTML='<span style="color:#b43c3c">Gagal memuat penugasan: '+escapeHtml(err&&err.message?err.message:String(err))+'</span>';
+    document.getElementById('agentBsTableArea').innerHTML='<div class="error">Gagal memuat data Penugasan by Agent BS. Pastikan sheet Nasional dan MKM dapat diakses.</div>';
+  }).getAgentBsAssignmentData();
+}
+function fillAgentBsFilters(){
+  var agents={},bsos={},dist={};
+  agentBsRows.forEach(function(r){
+    var agent=String(r.agentBs||'').trim()||'BELUM ADA AGENT BS';
+    var bso=String(r.bso||'').trim()||'BELUM ADA BSO';
+    var status=normalizeAgentDistribution_(r.distributionStatus);
+    agents[agent]=true;bsos[bso]=true;dist[status]=true;
+  });
+  fillSelect('abAgent',Object.keys(agents).sort(function(a,b){return a.localeCompare(b,'id');}),'Semua Agent BS');
+  fillSelect('abBso',Object.keys(bsos).sort(function(a,b){return a.localeCompare(b,'id');}),'Semua PIC BSO');
+  var statusOptions=Object.keys(dist).sort(function(a,b){
+    var rank={'TO BE ONHAND':0,'ID CARD BELUM DI CETAK':1,'ONHAND':2};
+    return (rank[a]===undefined?1:rank[a])-(rank[b]===undefined?1:rank[b]) || a.localeCompare(b,'id');
+  });
+  fillSelect('abDist',statusOptions,'Semua Status');
+
+  var feedbackSelect=document.getElementById('abFeedback');
+  feedbackSelect.innerHTML='<option value="">Semua Feedback</option><option value="__EMPTY__">Belum Diisi</option>';
+  feedbackTadOptions.forEach(function(option){
+    var opt=document.createElement('option');
+    opt.value=option;
+    opt.textContent=option;
+    feedbackSelect.appendChild(opt);
+  });
+}
+function normalizeAgentDistribution_(value){
+  var s=String(value||'').toUpperCase().replace(/\s+/g,' ').trim();
+  if(s.indexOf('TO BE ONHAND')>=0||s.indexOf('TO BE ON HAND')>=0)return 'TO BE ONHAND';
+  if(s==='ONHAND'||s==='ON HAND'||s.indexOf('ONHAND')>=0||s.indexOf('ON HAND')>=0)return 'ONHAND';
+  return 'ID CARD BELUM DI CETAK';
+}
+function applyAgentBsFilters(){
+  var source=document.getElementById('abSource').value;
+  var agent=document.getElementById('abAgent').value;
+  var bso=document.getElementById('abBso').value;
+  var dist=document.getElementById('abDist').value;
+  var feedback=document.getElementById('abFeedback').value;
+  var simSearch=String(document.getElementById('abSimSearch').value||'').trim().toUpperCase();
+  agentBsFilteredRows=agentBsRows.filter(function(r){
+    if(source&&r.source!==source)return false;
+    var rowAgent=String(r.agentBs||'').trim()||'BELUM ADA AGENT BS';
+    var rowBso=String(r.bso||'').trim()||'BELUM ADA BSO';
+    if(agent&&rowAgent!==agent)return false;
+    if(bso&&rowBso!==bso)return false;
+    if(dist&&normalizeAgentDistribution_(r.distributionStatus)!==dist)return false;
+    var rowFeedback=String(r.feedbackTad||'').trim();
+    if(feedback==='__EMPTY__'&&rowFeedback!=='')return false;
+    if(feedback&&feedback!=='__EMPTY__'&&rowFeedback!==feedback)return false;
+    var rowSimId=String(r.simId||'').trim().toUpperCase();
+    if(simSearch&&rowSimId.indexOf(simSearch)<0)return false;
+    return true;
+  });
+  agentBsFilteredRows=agentBsFilteredRows.map(function(row,index){return {row:row,index:index};})
+    .sort(function(a,b){
+      var sa=normalizeAgentDistribution_(a.row.distributionStatus);
+      var sb=normalizeAgentDistribution_(b.row.distributionStatus);
+      var rank={'TO BE ONHAND':0,'ID CARD BELUM DI CETAK':1,'ONHAND':2};
+      return (rank[sa]-rank[sb])||(a.index-b.index);
+    }).map(function(x){return x.row;});
+  agentBsPage=1;
+  renderAgentBs();
+}
+function renderAgentBs(){
+  var total=agentBsFilteredRows.length;
+  var done=agentBsFilteredRows.filter(function(r){return r.productionDone===true;}).length;
+  var undone=Math.max(0,total-done);
+  var achievement=total?(done/total*100):0;
+
+  var distCounts={
+    'ID CARD BELUM DI CETAK':0,
+    'TO BE ONHAND':0,
+    'ONHAND':0
+  };
+  agentBsFilteredRows.forEach(function(r){
+    var status=normalizeAgentDistribution_(r.distributionStatus);
+    if(distCounts[status]===undefined)distCounts[status]=0;
+    distCounts[status]++;
+  });
+
+  document.getElementById('abTotal').textContent=fmt(total);
+  document.getElementById('abDone').textContent=fmt(done);
+  document.getElementById('abUndone').textContent=fmt(undone);
+  document.getElementById('abAchievement').textContent=achievement.toFixed(1).replace('.',',')+'%';
+  document.getElementById('abDistCount').textContent=fmt(total)+' data ditemukan';
+
+  var distArea=document.getElementById('abDistSummary');
+  var preferred=['ID CARD BELUM DI CETAK','TO BE ONHAND','ONHAND'];
+  distArea.innerHTML=preferred.map(function(label){
+    return '<span class="status-chip">'+escapeHtml(label)+' <b>'+fmt(distCounts[label]||0)+'</b></span>';
+  }).join('');
+  renderAgentBsTable();
+}
+function renderAgentBsTable(){
+  var area=document.getElementById('agentBsTableArea');
+  var start=(agentBsPage-1)*agentBsPageSize;
+  var rows=agentBsFilteredRows.slice(start,start+agentBsPageSize);
+  if(!rows.length){
+    area.innerHTML='<div class="empty">Tidak ada data penugasan sesuai filter.</div>';
+  }else{
+    var headers=['FEEDBACK TAD','SIM ID BPR','EMPLOYEE NAME','ORGANIZATION / CABANG','JOB NAME','COMPANY CLIENT','NOMOR TLP','AGENT BS','BSO','LT DISTRIBUSI','STATUS SLA','STATUS DISTRIBUSI KE TAD','TGL KIRIM IDCARD','TGL TERIMA TAD'];
+    var html='<table><thead><tr>'+headers.map(function(h){return '<th>'+escapeHtml(h)+'</th>';}).join('')+'</tr></thead><tbody>';
+    rows.forEach(function(r){
+      var selected=String(r.feedbackTad||'');
+      var select='<select class="feedback-tad-select feedback-empty" data-source="'+escapeHtml(r.source)+'" data-sim-id="'+escapeHtml(r.simId)+'" data-name="'+escapeHtml(r.name)+'" data-row-number="'+escapeHtml(r.sheetRow||'')+'" data-saved-value="'+escapeHtml(selected)+'" onchange="styleFeedbackTadSelect(this);saveAgentBsFeedback(this)"><option value="">Pilih Feedback TAD</option>';
+      feedbackTadOptions.forEach(function(option){
+        select+='<option value="'+escapeHtml(option)+'"'+(selected===option?' selected':'')+'>'+escapeHtml(option)+'</option>';
+      });
+      select+='</select><small class="feedback-save-state"></small>';
+      var ltNum=parseFloat(String(r.ltDistribusi||'').replace(',','.'));
+      var ltClass=!isNaN(ltNum)&&ltNum>5?'lt-alert':(!isNaN(ltNum)&&ltNum<=5?'lt-good':'');
+      html+='<tr><td>'+select+'</td><td>'+escapeHtml(r.simId||'-')+'</td><td><b>'+escapeHtml(r.name||'-')+'</b></td><td>'+escapeHtml(r.org||r.area||'-')+'</td><td>'+escapeHtml(r.job||'-')+'</td><td>'+escapeHtml(r.company||'-')+'</td><td>'+escapeHtml(r.phone||'-')+'</td><td>'+escapeHtml(r.agentBs||'-')+'</td><td>'+escapeHtml(r.bso||'-')+'</td><td><span class="'+ltClass+'">'+escapeHtml(r.ltDistribusi?(r.ltDistribusi+' hari'):'-')+'</span></td><td>'+statusPill(r.slaStatus)+'</td><td>'+distributionStatusPill(r.distributionStatus)+'</td><td>'+escapeHtml(r.sentIdCard||'-')+'</td><td>'+escapeHtml(r.receivedTAD||'-')+'</td></tr>';
+    });
+    html+='</tbody></table>';
+    area.innerHTML=html;
+    Array.prototype.forEach.call(area.querySelectorAll('.feedback-tad-select'),function(el){
+      styleFeedbackTadSelect(el);
+    });
+  }
+  var pages=Math.max(1,Math.ceil(agentBsFilteredRows.length/agentBsPageSize));
+  document.getElementById('agentBsPageInfo').textContent='Halaman '+agentBsPage+' dari '+pages+' • '+fmt(agentBsFilteredRows.length)+' data';
+  document.getElementById('agentBsPrevBtn').disabled=agentBsPage<=1;
+  document.getElementById('agentBsNextBtn').disabled=agentBsPage>=pages;
+}
+function changeAgentBsPage(delta){
+  var pages=Math.max(1,Math.ceil(agentBsFilteredRows.length/agentBsPageSize));
+  agentBsPage=Math.min(pages,Math.max(1,agentBsPage+delta));
+  renderAgentBsTable();
+}
+function styleFeedbackTadSelect(selectEl){
+  if(!selectEl)return;
+  var value=String(selectEl.value||'');
+  var classes={
+    'SUDAH DITERIMA':'feedback-received',
+    'BELUM DITERIMA':'feedback-notreceived',
+    'DITERIMA TIDAK SESUAI':'feedback-mismatch',
+    'ID CARD RUSAK':'feedback-damaged',
+    'ID CARD BELUM DICETAK':'feedback-unprinted',
+    'ID CARD HILANG':'feedback-lost',
+    'ID CARD BELUM DI TERIMA REVO/RM':'feedback-revo',
+    'ID CARD BELUM TERIMA CABANG':'feedback-branch'
+  };
+  selectEl.className='feedback-tad-select '+(classes[value]||'feedback-empty');
+}
+function saveAgentBsFeedback(selectEl){
+  var source=selectEl.getAttribute('data-source');
+  var simId=selectEl.getAttribute('data-sim-id');
+  var name=selectEl.getAttribute('data-name');
+  var rowNumber=Number(selectEl.getAttribute('data-row-number')||0);
+  var oldValue=selectEl.getAttribute('data-saved-value')||'';
+  var newValue=selectEl.value;
+  var state=selectEl.parentNode.querySelector('.feedback-save-state');
+  selectEl.disabled=true;
+  if(state){state.className='feedback-save-state';state.textContent='Menyimpan...';}
+  google.script.run.withSuccessHandler(function(res){
+    selectEl.disabled=false;
+    selectEl.setAttribute('data-saved-value',newValue);
+    var row=agentBsRows.find(function(r){return r.source===source&&String(r.simId)===String(simId);});
+    if(row)row.feedbackTad=newValue;
+    if(state){state.className='feedback-save-state saved';state.textContent='Tersimpan di kolom T';}
+  }).withFailureHandler(function(err){
+    selectEl.disabled=false;selectEl.value=oldValue;
+    if(state){state.className='feedback-save-state failed';state.textContent='Gagal menyimpan';}
+    alert('Feedback TAD gagal disimpan: '+(err&&err.message?err.message:String(err)));
+  }).saveAgentBsFeedback(source,simId,name,newValue,rowNumber);
+}
+function toggleAgentExportMenu(event){
+  if(event)event.stopPropagation();
+  var menu=document.getElementById('agentExportMenu');
+  if(menu)menu.style.display=menu.style.display==='none'?'block':'none';
+}
+function runAgentBsExport(format){
+  var menu=document.getElementById('agentExportMenu');if(menu)menu.style.display='none';
+  if(!agentBsFilteredRows.length){alert('Tidak ada data penugasan untuk diekspor.');return;}
+  var headers=['FEEDBACK TAD','SUMBER DATA','SIM ID BPR','EMPLOYEE NAME','ORGANIZATION / CABANG','JOB NAME','COMPANY CLIENT','NOMOR TLP','AGENT BS','BSO','LT DISTRIBUSI','STATUS SLA','STATUS DISTRIBUSI KE TAD','TGL KIRIM IDCARD','TGL TERIMA TAD','STATUS PRODUKSI'];
+  var rows=agentBsFilteredRows.map(function(r){
+    return [r.feedbackTad||'',r.source==='MKM'?'ID CARD MKM':'ID CARD NASIONAL',r.simId,r.name,r.org||r.area,r.job,r.company,r.phone,r.agentBs,r.bso,r.ltDistribusi,r.slaStatus,r.distributionStatus,r.sentIdCard,r.receivedTAD,r.productionStatus];
+  });
+  var payload={source:'PENUGASAN_AGENT_BS',headers:headers,rows:rows};
+  var dateTag=new Date().toISOString().slice(0,10);
+  if(format==='csv'){
+    var csv=String.fromCharCode(65279)+[headers].concat(rows).map(function(line){return line.map(csvCell).join(',');}).join(String.fromCharCode(13,10));
+    downloadExportBlob(new Blob([csv],{type:'text/csv;charset=utf-8;'}),'PENUGASAN_AGENT_BS_FILTERED_'+dateTag+'.csv');
+    return;
+  }
+  var button=document.getElementById('agentExportMenuButton');
+  var old=button?button.innerHTML:'⇩ Export Data ▾';
+  if(button){button.disabled=true;button.textContent='Menyiapkan '+format.toUpperCase()+'...';}
+  google.script.run.withSuccessHandler(function(result){
+    if(button){button.disabled=false;button.innerHTML=old;}
+    if(result&&result.base64)downloadBase64Export(result);
+    else alert('File export tidak berhasil dibuat.');
+  }).withFailureHandler(function(err){
+    if(button){button.disabled=false;button.innerHTML=old;}
+    alert('Gagal export: '+(err&&err.message?err.message:String(err)));
+  }).exportFilteredData(format,payload);
+}
+
+function openEvidence(){
+  activatePage('EVIDENCE','tabEVIDENCE');
+  document.getElementById('evidencePage').style.display='block';
+  loadEvidence();
+}
+function openSummary(){
+  activatePage('SUMMARY','tabSUMMARY');
+  document.getElementById('summaryPage').style.display='block';
+  if(!summaryRows.length)loadSummary();else renderSummary();
+}
+function loadSummary(){
+  var area=document.getElementById('summaryTableArea');
+  area.innerHTML='<div class="loader">Menghitung summary leadtime per REVO / RM khusus status TO BE ONHAND...</div>';
+  google.script.run.withSuccessHandler(function(res){
+    summaryRows=res.rows||[];
+    fillSummaryDropdowns();
+    renderSummary();
+  }).withFailureHandler(function(err){
+    area.innerHTML='<div class="error">Gagal memuat summary: '+escapeHtml(err&&err.message?err.message:String(err))+'</div>';
+  }).getLeadtimeSummary();
+}
+function fillSummaryDropdowns(){
+  var bsoSet={},rmSet={};
+  summaryRows.forEach(function(r){
+    String(r.bso||'').split(',').forEach(function(x){x=x.trim();if(x)bsoSet[x]=true;});
+    if(r.rm)rmSet[r.rm]=true;
+  });
+  fillSelect('smBso',Object.keys(bsoSet).sort(function(a,b){return a.localeCompare(b,'id');}),'Semua PIC BSO');
+  fillSelect('smRm',Object.keys(rmSet).sort(function(a,b){return a.localeCompare(b,'id');}),'Semua RM');
+}
+function renderSummary(){
+  var source=document.getElementById('smSource').value;
+  var bso=document.getElementById('smBso').value;
+  var rm=document.getElementById('smRm').value;
+  var q=document.getElementById('smSearch').value.toLowerCase().trim();
+
+  // Backend hanya mengirim beban TO BE ONHAND; filter di sini hanya menyaring
+  // sumber, BSO, RM, serta kata pencarian REVO/RM.
+  var rows=summaryRows.filter(function(r){
+    if(source&&r.source!==source)return false;
+    if(rm&&r.rm!==rm)return false;
+    if(bso&&String(r.bso||'').split(',').map(function(x){return x.trim();}).indexOf(bso)<0)return false;
+    if(q&&[r.revo,r.rm,r.bso,r.source].join(' ').toLowerCase().indexOf(q)<0)return false;
+    return true;
+  });
+
+  var totalLoad=0,distinctRms={},distinctRevos={},maxLead=null;
+  rows.forEach(function(r){
+    // BEBAN ID CARD dihitung sebagai jumlah record/beban TO BE ONHAND.
+    totalLoad+=Number(r.rowCount||0);
+    if(r.rm)distinctRms[String(r.rm).trim()]=true;
+    if(r.revo)distinctRevos[String(r.revo).trim()]=true;
+
+    // LT TERLAMA mengambil nilai Leadtime numerik tertinggi dari seluruh bucket.
+    var buckets=r.leadBuckets||{};
+    Object.keys(buckets).forEach(function(key){
+      if(key==='BELUM ADA LT')return;
+      var value=Number(String(key).replace(',','.'));
+      if(isFinite(value)&&(maxLead===null||value>maxLead))maxLead=value;
+    });
+  });
+  var rmCount=Object.keys(distinctRms).length;
+  var revoCount=Object.keys(distinctRevos).length;
+  document.getElementById('smTotalLoad').textContent=fmt(totalLoad);
+  document.getElementById('smTotalRm').textContent=fmt(rmCount);
+  document.getElementById('smTotalRevo').textContent=fmt(revoCount);
+  document.getElementById('smMaxLead').textContent=maxLead===null?'-':(String(maxLead).replace('.',',')+' hari');
+
+  if(!rows.length){
+    document.getElementById('smCount').textContent='0 REVO / RM ditemukan.';
+    document.getElementById('summaryTableArea').innerHTML='<div class="empty">Tidak ada beban TO BE ONHAND yang sesuai filter.</div>';
+    var emptyVisual=document.getElementById('summaryVisual');if(emptyVisual){emptyVisual.style.display='none';emptyVisual.innerHTML='';}
+    return;
+  }
+
+  // Matriks menggabungkan sumber Nasional dan MKM pada pasangan REVO + RM.
+  var byRevoRm={};
+  rows.forEach(function(r){
+    var revo=String(r.revo||'BELUM ADA REVO');
+    var rmName=String(r.rm||'BELUM ADA RM');
+    var key=revo+'||'+rmName;
+    if(!byRevoRm[key])byRevoRm[key]={revo:revo,rm:rmName,buckets:{},total:0};
+    var target=byRevoRm[key];
+    var buckets=r.leadBuckets||{};
+    Object.keys(buckets).forEach(function(k){
+      var count=Number(buckets[k]||0);
+      target.buckets[k]=(target.buckets[k]||0)+count;
+      target.total+=count;
+    });
+    var missing=Number(r.missingLeadtime||0);
+    if(missing>0){
+      target.buckets['BELUM ADA LT']=(target.buckets['BELUM ADA LT']||0)+missing;
+      target.total+=missing;
+    }
+  });
+
+  var pivotRows=Object.keys(byRevoRm).map(function(k){return byRevoRm[k];});
+  pivotRows.sort(function(a,b){
+    var revoSort=String(a.revo||'').localeCompare(String(b.revo||''),'id',{sensitivity:'base',numeric:true});
+    return revoSort||String(a.rm||'').localeCompare(String(b.rm||''),'id',{sensitivity:'base',numeric:true});
+  });
+
+  // Visual Top 5 pasangan REVO / RM berdasarkan beban TO BE ONHAND.
+  var topLoad=pivotRows.slice().sort(function(a,b){return b.total-a.total;}).slice(0,5);
+  var maxLoad=topLoad.length?Math.max.apply(null,topLoad.map(function(r){return r.total;})):0;
+  var visual=document.getElementById('summaryVisual');
+  if(topLoad.length){
+    var bars='<div class="summary-visual-head"><strong>TOP 5 REVO / RM — BEBAN TO BE ONHAND</strong><span>Khusus status TO BE ONHAND</span></div><div class="summary-bars">';
+    topLoad.forEach(function(r){
+      var pct=maxLoad?Math.max(2,(r.total/maxLoad)*100):0;
+      var label=r.revo+' / '+r.rm;
+      bars+='<div class="summary-bar-row"><div class="summary-bar-name" title="'+escapeHtml(label)+'">'+escapeHtml(label)+'</div><div class="summary-bar-track"><div class="summary-bar-fill" style="width:'+pct+'%"></div></div><div class="summary-bar-value">'+fmt(r.total)+'</div></div>';
+    });
+    bars+='</div>';visual.innerHTML=bars;visual.style.display='block';
+  } else {visual.innerHTML='';visual.style.display='none';}
+
+  var keySet={};
+  pivotRows.forEach(function(r){Object.keys(r.buckets).forEach(function(k){keySet[k]=true;});});
+  var leadKeys=Object.keys(keySet).sort(function(a,b){
+    if(a==='BELUM ADA LT')return 1;
+    if(b==='BELUM ADA LT')return -1;
+    return Number(a)-Number(b);
+  });
+
+  var columnTotals={};
+  leadKeys.forEach(function(k){columnTotals[k]=0;});
+  var pivotGrandTotal=0;
+  var html='<table class="pivot-table"><thead>';
+  html+='<tr><th class="pivot-rm-head" rowspan="2">REVO</th><th class="pivot-rm-head" rowspan="2">RM</th>';
+  html+='<th class="pivot-band" colspan="'+Math.max(1,leadKeys.length)+'">LEADTIME — TO BE ONHAND</th>';
+  html+='<th class="pivot-grand-head" rowspan="2">Grand Total</th></tr><tr>';
+  if(leadKeys.length){
+    leadKeys.forEach(function(k){
+      var label=k==='BELUM ADA LT'?k:String(k).replace('.',',');
+      html+='<th class="pivot-day-head">'+escapeHtml(label)+'</th>';
+    });
+  } else {
+    html+='<th class="pivot-day-head">-</th>';
+  }
+  html+='</tr></thead><tbody>';
+
+  pivotRows.forEach(function(r){
+    html+='<tr><td class="pivot-revo">'+escapeHtml(r.revo)+'</td><td class="pivot-rm"><b>'+escapeHtml(r.rm)+'</b></td>';
+    leadKeys.forEach(function(k){
+      var value=Number(r.buckets[k]||0);
+      columnTotals[k]+=value;
+      // Warna pink seragam hanya untuk sel QTY pada matriks LEADTIME.
+      // Header, REVO, RM, dan kolom Grand Total tetap menggunakan tema biru-gold.
+      var cellStyle=value?' style="background:#F6C4D8;color:#7D294B;font-weight:800;"':'';
+      html+='<td class="pivot-number"'+cellStyle+'>'+(value?fmt(value):'')+'</td>';
+    });
+    pivotGrandTotal+=r.total;
+    html+='<td class="pivot-number pivot-row-total"><b>'+fmt(r.total)+'</b></td></tr>';
+  });
+
+  html+='<tr class="pivot-total-row"><td colspan="2"><b>Grand Total</b></td>';
+  leadKeys.forEach(function(k){html+='<td class="pivot-number"><b>'+fmt(columnTotals[k]||0)+'</b></td>';});
+  html+='<td class="pivot-number"><b>'+fmt(pivotGrandTotal)+'</b></td></tr>';
+  html+='</tbody></table>';
+
+  document.getElementById('smCount').textContent=fmt(pivotRows.length)+' pasangan REVO / RM • '+fmt(pivotGrandTotal)+' beban TO BE ONHAND dalam matriks leadtime.';
+  document.getElementById('summaryTableArea').innerHTML=html;
+}
+
+var evidenceSearchResults = [];
+var evidenceSearchTimer = null;
+function resetEvidenceEmployee(){evidenceSearchResults=[];['evSimId','evName','evBranch','evBso','evRm','evRevo'].forEach(function(id){document.getElementById(id).value='';});document.getElementById('evSimOptions').innerHTML='';}
+function searchEvidenceEmployee(){
+  var q=document.getElementById('evSimId').value.trim();
+  if(q.length<3)return;
+  google.script.run.withSuccessHandler(function(rows){
+    evidenceSearchResults=rows||[];
+    var dl=document.getElementById('evSimOptions');dl.innerHTML='';
+    evidenceSearchResults.forEach(function(r){var o=document.createElement('option');o.value=r.simId;o.label=r.simId+' — '+r.name+' — '+r.branch;dl.appendChild(o);});
+    selectEvidenceEmployee();
+  }).withFailureHandler(function(err){document.getElementById('evidenceMessage').innerHTML='<div class="error">Gagal mencari SIM ID: '+escapeHtml(err.message||String(err))+'</div>';}).searchEmployeeBySimId(document.getElementById('evSource').value,q);
+}
+function selectEvidenceEmployee(){
+  var id=document.getElementById('evSimId').value.trim();
+  var r=evidenceSearchResults.find(function(x){return String(x.simId)===id;});
+  if(!r)return;
+  document.getElementById('evName').value=r.name||'';document.getElementById('evBranch').value=r.branch||'';
+  document.getElementById('evBso').value=r.bso||'';document.getElementById('evRm').value=r.rm||'';document.getElementById('evRevo').value=r.revo||'';
+}
+
+function loadEvidence(){
+  document.getElementById('evidenceTableArea').innerHTML='<div class="loader">Memuat riwayat evidence...</div>';
+  google.script.run.withSuccessHandler(function(res){evidenceRows=res.rows||[];renderEvidenceTable();}).withFailureHandler(function(err){document.getElementById('evidenceTableArea').innerHTML='<div class="error">'+escapeHtml(err&&err.message?err.message:String(err))+'</div>';}).getEvidenceData();
+}
+function renderEvidenceTable(){
+  var area=document.getElementById('evidenceTableArea');document.getElementById('evidenceCount').textContent=fmt(evidenceRows.length)+' evidence tercatat.';
+  if(!evidenceRows.length){area.innerHTML='<div class="empty">Belum ada evidence kendala yang diinput. Gunakan form di atas untuk membuat laporan pertama.</div>';return;}
+  var html='<table><thead><tr><th>ID EVIDENCE</th><th>TANGGAL INPUT</th><th>SUMBER</th><th>SIM ID BPR</th><th>NAMA</th><th>CABANG</th><th>RM / REVO</th><th>JENIS KENDALA</th><th>STATUS</th><th>BUKTI</th></tr></thead><tbody>';
+  evidenceRows.slice().reverse().forEach(function(r){var link=r.url?'<a href="'+escapeHtml(r.url)+'" target="_blank" rel="noopener">Buka bukti</a>':'-';html+='<tr><td>'+escapeHtml(r.id)+'</td><td>'+escapeHtml(r.date)+'</td><td>'+escapeHtml(r.source)+'</td><td>'+escapeHtml(r.simId)+'</td><td><b>'+escapeHtml(r.name)+'</b></td><td>'+escapeHtml(r.branch)+'</td><td>'+escapeHtml(r.rm||r.revo)+'</td><td>'+escapeHtml(r.issue)+'</td><td>'+statusPillEvidence(r.status)+'</td><td>'+link+'</td></tr>';});
+  html+='</tbody></table>';area.innerHTML=html;
+}
+function statusPillEvidence(status){return '<span class="pill pending">'+escapeHtml(status||'BARU')+'</span>';}
+function showEvidenceFileName(){var f=document.getElementById('evFile').files[0];document.getElementById('evFileNote').textContent=f?f.name+' • '+(f.size/1024/1024).toFixed(2)+' MB':'Pilih foto atau dokumen bukti kendala.';}
+function resetEvidenceForm(){['evSimId','evName','evBranch','evBso','evRm','evRevo','evDetail'].forEach(function(id){document.getElementById(id).value='';});document.getElementById('evSource').value='NASIONAL';evidenceSearchResults=[];document.getElementById('evSimOptions').innerHTML='';document.getElementById('evIssue').value='';document.getElementById('evFile').value='';showEvidenceFileName();document.getElementById('evidenceMessage').innerHTML='';}
+function submitEvidence(){
+  var file=document.getElementById('evFile').files[0];
+  if(!file){alert('Pilih file evidence terlebih dahulu.');return;}
+  if(file.size>5*1024*1024){alert('Ukuran file maksimal 5 MB.');return;}
+  var payload={source:document.getElementById('evSource').value,simId:document.getElementById('evSimId').value,name:document.getElementById('evName').value,branch:document.getElementById('evBranch').value,bso:document.getElementById('evBso').value,rm:document.getElementById('evRm').value,revo:document.getElementById('evRevo').value,issue:document.getElementById('evIssue').value,detail:document.getElementById('evDetail').value,fileName:file.name,mimeType:file.type};
+  if((!payload.simId&&!payload.name)||!payload.issue||!payload.detail){alert('Isi SIM ID BPR atau nama, jenis kendala, dan detail kendala.');return;}
+  var btn=document.getElementById('saveEvidenceBtn');btn.disabled=true;btn.textContent='MENGUNGGAH...';document.getElementById('evidenceMessage').innerHTML='<div class="upload-note">Mengunggah file ke Google Drive dan mencatat laporan...</div>';
+  var reader=new FileReader();
+  reader.onload=function(evt){payload.base64=String(evt.target.result).split(',')[1]||'';google.script.run.withSuccessHandler(function(res){btn.disabled=false;btn.textContent='SIMPAN KENDALA ID CARD';document.getElementById('evidenceMessage').innerHTML='<div class="success-note">'+escapeHtml(res.message)+' ID: '+escapeHtml(res.id)+' • <a href="'+escapeHtml(res.fileUrl)+'" target="_blank" rel="noopener">Buka file evidence</a></div>';resetEvidenceForm();loadEvidence();}).withFailureHandler(function(err){btn.disabled=false;btn.textContent='SIMPAN KENDALA ID CARD';document.getElementById('evidenceMessage').innerHTML='<div class="error">Gagal menyimpan evidence: '+escapeHtml(err&&err.message?err.message:String(err))+'</div>';}).saveEvidence(payload);};
+  reader.onerror=function(){btn.disabled=false;btn.textContent='SIMPAN KENDALA ID CARD';document.getElementById('evidenceMessage').innerHTML='<div class="error">File tidak dapat dibaca browser. Coba pilih file lain.</div>';};
+  reader.readAsDataURL(file);
+}
+
+function changeSource(source){
+  currentSource=source;
+  activatePage('DATA',source==='MKM'?'tabMKM':'tabNASIONAL');
+  document.getElementById('filterTitle').textContent=source==='MKM'?'Filter ID Card MKM':'Filter ID Card Nasional';
+  document.getElementById('revoLabel').textContent=source==='MKM'?'PIC DISTRIBUSI (MKM tidak punya kolom REVO)':'REVO';
+  document.getElementById('slaSetting').style.display=source==='NASIONAL'?'flex':'none';
+  loadData(false);
+}
+function loadData(showMessage){
+  var state=document.getElementById('loadState');
+  state.style.display='block';state.className='panel loader';state.textContent='Membaca data '+(currentSource==='MKM'?'ID CARD MKM':'ID CARD NASIONAL')+' dari Google Sheets...';
+  document.getElementById('app').style.display='none';
+  loadStartedAt=Date.now();
+  if(loadProgressTimer)clearTimeout(loadProgressTimer);
+  loadProgressTimer=setTimeout(function(){if(state.style.display!=='none'){state.textContent='Masih memproses data dalam jumlah besar. Jangan tutup halaman; jika lebih dari 30–45 detik, gunakan tombol muat ulang atau kirim screenshot ke admin.';}},8000);
+  google.script.run.withSuccessHandler(function(res){
+    if(loadProgressTimer)clearTimeout(loadProgressTimer);
+    allRows=res.rows||[];lastHeaders=res.headers||[];nationalSla=res.nationalSla;
+    if(res.pageSize)pageSize=res.pageSize;
+    fillDropdowns();
+    state.style.display='none';
+    if(activePage==='DATA') document.getElementById('app').style.display='block';
+    resetFilters(false);
+  }).withFailureHandler(function(err){
+    if(loadProgressTimer)clearTimeout(loadProgressTimer);
+    if(activePage==='DATA'){state.style.display='block';state.className='panel error';state.innerHTML='<b>Gagal mengambil data.</b><br>'+escapeHtml(err&&err.message?err.message:String(err))+'<br><br>Pastikan Apps Script dibuat dari file Google Sheets sumber dan nama kedua tab benar.';}
+  }).getDashboardData(currentSource);
+}
+function uniqueValues(key,alsoKey){
+  var seen={};var vals=[];
+  allRows.forEach(function(r){[r[key],alsoKey?r[alsoKey]:''].forEach(function(v){v=String(v||'').trim();if(v&&v!=='-'&&!seen[v]){seen[v]=true;vals.push(v);}});});
+  vals.sort(function(a,b){return a.localeCompare(b,'id');});return vals;
+}
+function fillSelect(id,values,first){var el=document.getElementById(id);var old=el.value;el.innerHTML='';var op=document.createElement('option');op.value='';op.textContent=first;el.appendChild(op);values.forEach(function(v){var o=document.createElement('option');o.value=v;o.textContent=v;el.appendChild(o);});if(values.indexOf(old)>=0)el.value=old;}
+function fillDropdowns(){
+  fillSelect('fBso',uniqueValues('bso'),'Semua PIC BSO');
+  fillSelect('fRevo',uniqueValues('revo'),currentSource==='MKM'?'Semua PIC Distribusi':'Semua REVO');
+  fillSelect('fRm',uniqueValues('rm'),'Semua RM');
+  fillSelect('fArea',uniqueValues('area','org'),'Semua Area / Cabang');
+  fillSelect('fDist',uniqueValues('distributionStatus'),'Semua Status Distribusi');
+  var distSelect=document.getElementById('fDist');
+  Array.prototype.forEach.call(distSelect.options,function(option){
+    if(String(option.value||'').toUpperCase().trim()==='BELUM ADA STATUS' || option.value===''){
+      if(option.value) option.textContent='ID CARD BELUM DI CETAK';
+    }
+  });
+}
+function resetFilters(reapply){['fBso','fRevo','fRm','fArea','fSla','fDist','fSearch'].forEach(function(id){document.getElementById(id).value='';});page=1;if(reapply!==false)applyFilters();else applyFilters();}
+function applyFilters(){
+  var bso=document.getElementById('fBso').value,revo=document.getElementById('fRevo').value,rm=document.getElementById('fRm').value,area=document.getElementById('fArea').value,sla=document.getElementById('fSla').value,dist=document.getElementById('fDist').value,q=document.getElementById('fSearch').value.toLowerCase().trim();
+  filteredRows=allRows.filter(function(r){
+    if(bso&&r.bso!==bso)return false;
+    if(revo&&r.revo!==revo)return false;
+    if(rm&&r.rm!==rm)return false;
+    if(area&&r.area!==area&&r.org!==area)return false;
+    if(sla&&r.slaStatus!==sla)return false;
+    if(dist&&r.distributionStatus!==dist)return false;
+    if(q){var hay=[r.simId,r.name,r.org,r.area,r.job,r.company,r.bso,r.revo,r.rm,r.distributionStatus,r.slaStatus].join(' ').toLowerCase();if(hay.indexOf(q)<0)return false;}
+    return true;
+  });
+  // Urutkan hasil filter: TO BE ONHAND paling atas, status lain di tengah,
+  // dan ONHAND paling bawah. Urutan asli tetap dipertahankan dalam tiap kelompok.
+  filteredRows = filteredRows.map(function(row, index){ return {row:row, index:index}; })
+    .sort(function(a, b){
+      function rank(value){
+        var s=String(value||'').toUpperCase().replace(/\s+/g,' ').trim();
+        if(s.indexOf('TO BE ONHAND')>=0 || s.indexOf('TO BE ON HAND')>=0) return 0;
+        if(s==='ONHAND' || s==='ON HAND' || s.indexOf('ONHAND')>=0 || s.indexOf('ON HAND')>=0) return 2;
+        return 1;
+      }
+      var diff=rank(a.row.distributionStatus)-rank(b.row.distributionStatus);
+      return diff || (a.index-b.index);
+    })
+    .map(function(item){ return item.row; });
+  page=1;renderAll();
+}
+function renderAll(){
+  var on=0,over=0,pending=0,dist={};
+  filteredRows.forEach(function(r){if(r.slaStatus==='ON SLA')on++;else if(r.slaStatus==='OVER SLA')over++;else pending++;var rawStatus=String(r.distributionStatus||'BELUM ADA STATUS');var s=displayDistributionStatus(rawStatus);dist[s]=(dist[s]||0)+1;});
+  document.getElementById('kTotal').textContent=fmt(filteredRows.length);
+  document.getElementById('kOn').textContent=fmt(on);
+  document.getElementById('kOver').textContent=fmt(over);
+  document.getElementById('kOnHint').textContent='SLA: '+(currentSource==='NASIONAL'?nationalSla+' hari kerja':'mengikuti kolom SLA DISTRIBUSI');
+  document.getElementById('kPending').textContent=fmt(pending);
+  var summary=document.getElementById('distSummary');summary.innerHTML='';var keys=Object.keys(dist).sort(function(a,b){return dist[b]-dist[a];});
+  if(!keys.length)summary.innerHTML='<span class="status-chip">Tidak ada data</span>';
+  keys.forEach(function(k){
+    var el=document.createElement('span');
+    var normalized=String(k||'').toUpperCase().replace(/\s+/g,' ').trim();
+    el.className='status-chip';
+    if(normalized.indexOf('TO BE ONHAND')>=0 || normalized.indexOf('TO BE ON HAND')>=0) el.className+=' dist-chip-tobe';
+    else if(normalized==='ONHAND' || normalized==='ON HAND' || normalized.indexOf('ONHAND')>=0 || normalized.indexOf('ON HAND')>=0) el.className+=' dist-chip-onhand';
+    el.textContent=k+' ';
+    var b=document.createElement('b');b.textContent=fmt(dist[k]);el.appendChild(b);summary.appendChild(el);
+  });
+  document.getElementById('resultCount').textContent=fmt(filteredRows.length)+' data ditemukan';renderTable();
+}
+function statusPill(status){var s=String(status||'');var c=s==='ON SLA'?'on':s==='OVER SLA'?'over':(s.indexOf('BELUM')===0?'pending':'other');return '<span class="pill '+c+'">'+escapeHtml(s||'-')+'</span>';}
+function displayDistributionStatus(status){
+  var s=String(status||'').trim();
+  var n=s.toUpperCase().replace(/\s+/g,' ').trim()
+  return (!s || n==='BELUM ADA STATUS')?'ID CARD BELUM DI CETAK':s;
+}
+function distributionStatusPill(status){
+  var s=String(status||'').trim();
+  var n=s.toUpperCase().replace(/\s+/g,' ').trim();
+  var c='other';
+  if(n.indexOf('TO BE ONHAND')>=0 || n.indexOf('TO BE ON HAND')>=0) c='dist-to-be-onhand';
+  else if(n==='ONHAND' || n==='ON HAND' || n.indexOf('ONHAND')>=0 || n.indexOf('ON HAND')>=0) c='dist-onhand';
+  return '<span class="pill '+c+'">'+escapeHtml(displayDistributionStatus(s)||'-')+'</span>';
+}
+function renderTable(){
+  var start=(page-1)*pageSize;var rows=filteredRows.slice(start,start+pageSize);var html='';
+  if(!rows.length){document.getElementById('tableArea').innerHTML='<div class="empty">Tidak ada data yang sesuai dengan filter.</div>';}
+  else{
+    var sentDateHeader='TGL KIRIM IDCARD';
+    html='<table><thead><tr><th>NO</th><th>SIM ID BPR</th><th>EMPLOYEE NAME</th><th>ORGANIZATION / CABANG</th><th>JOB NAME</th><th>COMPANY CLIENT</th><th>NOMOR TLP</th><th>REVO</th><th>RM</th><th>LT DISTRIBUSI</th><th>STATUS SLA</th><th>STATUS DISTRIBUSI KE TAD</th><th>'+escapeHtml(sentDateHeader)+'</th><th>TGL TERIMA TAD</th></tr></thead><tbody>';
+    rows.forEach(function(r,i){var ltNum=parseFloat(String(r.ltDistribusi||'').replace(',','.'));var alertLt=(!isNaN(ltNum)&&ltNum>5);var ltClass=alertLt?'lt-alert':((!isNaN(ltNum)&&ltNum<=5)?'lt-good':'');var slaClass=r.slaStatus==='OVER SLA'?'blink-alert':'';html+='<tr><td>'+(start+i+1)+'</td><td>'+escapeHtml(r.simId)+'</td><td><b>'+escapeHtml(r.name)+'</b></td><td>'+escapeHtml(r.org||r.area)+'</td><td>'+escapeHtml(r.job)+'</td><td>'+escapeHtml(r.company)+'</td><td class="phone-col">'+escapeHtml(r.phone||'-')+'</td><td>'+escapeHtml(r.revo)+'</td><td>'+escapeHtml(r.rm)+'</td><td><span class="'+ltClass+'">'+escapeHtml(r.ltDistribusi ? (r.ltDistribusi + ' hari') : '-')+'</span></td><td>'+statusPill(r.slaStatus).replace('pill over','pill over '+slaClass)+'</td><td>'+distributionStatusPill(r.distributionStatus)+'</td><td>'+escapeHtml(r.sentIdCard||'-')+'</td><td>'+escapeHtml(r.receivedTAD||'-')+'</td></tr>';});
+    html+='</tbody></table>';document.getElementById('tableArea').innerHTML=html;
+  }
+  var pages=Math.max(1,Math.ceil(filteredRows.length/pageSize));document.getElementById('pageInfo').textContent='Halaman '+page+' dari '+pages+' • '+fmt(filteredRows.length)+' data';document.getElementById('prevBtn').disabled=page<=1;document.getElementById('nextBtn').disabled=page>=pages;
+}
+function changePage(d){var pages=Math.max(1,Math.ceil(filteredRows.length/pageSize));page=Math.min(pages,Math.max(1,page+d));renderTable();}
+function toggleExportMenu(event){
+  if(event)event.stopPropagation();
+  var menu=document.getElementById('exportMenu');
+  if(!menu)return;
+  menu.style.display=menu.style.display==='none'?'block':'none';
+}
+function closeExportMenu(){
+  var menu=document.getElementById('exportMenu');
+  if(menu)menu.style.display='none';
+}
+function getExportData(){
+  var sentDateHeader='TGL KIRIM IDCARD';
+  var headers=['NO','SIM ID BPR','EMPLOYEE NAME','ORGANIZATION / CABANG','JOB NAME','COMPANY CLIENT','NOMOR TLP','REVO','RM','LT DISTRIBUSI','STATUS SLA','STATUS DISTRIBUSI KE TAD',sentDateHeader,'TGL TERIMA TAD'];
+  var rows=filteredRows.map(function(r,i){
+    return [i+1,r.simId,r.name,r.org||r.area,r.job,r.company,r.phone,r.revo,r.rm,
+      (r.ltDistribusi ? r.ltDistribusi+' hari' : ''),r.slaStatus,r.distributionStatus,
+      r.sentIdCard,r.receivedTAD];
+  });
+  return {headers:headers,rows:rows,source:currentSource};
+}
+function runExport(format){
+  closeExportMenu();
+  if(!filteredRows.length){alert('Tidak ada data yang sesuai filter untuk diekspor.');return;}
+  var data=getExportData();
+  var dateTag=new Date().toISOString().slice(0,10);
+  if(format==='csv'){
+    var lines=[data.headers].concat(data.rows);
+    var csv=String.fromCharCode(65279)+lines.map(function(line){return line.map(csvCell).join(',');}).join(String.fromCharCode(13,10));
+    downloadExportBlob(new Blob([csv],{type:'text/csv;charset=utf-8;'}),'ID_CARD_'+currentSource+'_FILTERED_'+dateTag+'.csv');
+    return;
+  }
+  var button=document.getElementById('exportMenuButton');
+  var oldText=button?button.innerHTML:'⇩ Export Data ▾';
+  if(button){button.disabled=true;button.textContent='Menyiapkan '+format.toUpperCase()+'...';}
+  google.script.run.withSuccessHandler(function(result){
+    if(button){button.disabled=false;button.innerHTML=oldText;}
+    if(!result||!result.base64){alert('File export tidak berhasil dibuat.');return;}
+    downloadBase64Export(result);
+  }).withFailureHandler(function(err){
+    if(button){button.disabled=false;button.innerHTML=oldText;}
+    alert('Gagal export '+format.toUpperCase()+': '+(err&&err.message?err.message:String(err)));
+  }).exportFilteredData(format,data);
+}
+function downloadExportBlob(blob,fileName){
+  var url=URL.createObjectURL(blob);var a=document.createElement('a');
+  a.href=url;a.download=fileName;document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(url);},1500);
+}
+function downloadBase64Export(result){
+  var binary=atob(result.base64);var bytes=new Uint8Array(binary.length);
+  for(var i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
+  downloadExportBlob(new Blob([bytes],{type:result.mimeType||'application/octet-stream'}),result.fileName||'ID_CARD_EXPORT');
+}
+function csvCell(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"';}
+function fmt(n){return Number(n||0).toLocaleString('id-ID');}
+function escapeHtml(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+document.addEventListener('click',function(event){
+  Array.prototype.forEach.call(document.querySelectorAll('.export-dropdown'),function(wrap){
+    if(wrap&&!wrap.contains(event.target)){
+      var menu=wrap.querySelector('.export-menu');if(menu)menu.style.display='none';
+    }
+  });
+});
+window.addEventListener('load',function(){var sla=document.getElementById('slaSetting');if(sla)sla.style.display='flex';openAgentBs();});
+</script>
+</body></html>
